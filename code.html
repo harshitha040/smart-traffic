@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Traffic Prediction</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='code.css') }}">
+</head>
+<body>
+<div class="container">
+  <h1>Traffic Prediction System 🚦</h1>
+  <form id="prediction-form">
+      <label for="coded_day">📅 Coded Day:</label>
+      <input type="number" id="coded_day" name="coded_day" required placeholder="1 Monday, 2 Tuesday..." />
+
+      <label for="zone">📍 Zone:</label>
+      <input type="number" id="zone" name="zone" required placeholder="1-North, 2-East, ..., 8-NorthWest" />
+
+      <label for="weather">☁ Weather (Coded):</label>
+      <input type="number" id="weather" name="weather" required placeholder="Enter weather code (1-46)" />
+
+      <label for="temperature">🌡 Temperature (°C):</label>
+      <input type="number" id="temperature" name="temperature" required placeholder="Enter temperature value" />
+
+      <button type="submit">Predict</button>
+      </div>
+  </form>
+
+
+  <p id="prediction-result"></p>
+
+  <div class="info-box">
+      <h3>📌 Dataset Column Descriptions</h3>
+      <ul>
+          <li><strong>Coded Day:</strong> Numeric representation of the day (Mon = 1, ..., Sun = 7).</li>
+          <li><strong>Zone:</strong> Represents different geographical zones for traffic collection.</li>
+          <li><strong>Weather:</strong> Weather conditions (coded):</li>
+      </ul>
+      <ul>
+          <li><strong>Temperature:</strong> Temperature of the zone on that day.</li>
+          <li><strong>Traffic:</strong> Coded from 1 (less than 5 cars) to 5 (more than 50 cars).</li>
+      </ul>
+  </div>
+</div>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
